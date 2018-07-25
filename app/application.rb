@@ -1,4 +1,3 @@
-require 'pry'
 class Application
 
   @@items = []
@@ -10,7 +9,6 @@ class Application
     if req.path.match(/items/)
       item_name = req.path.split("/items/").last
       item_returned = @@items.find {|item| item.name == item_name}
-      binding.pry
       if item_returned
         resp.write item_returned.price
       else
